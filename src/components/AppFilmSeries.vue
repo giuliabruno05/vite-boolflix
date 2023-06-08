@@ -21,27 +21,21 @@ export default {
 }
 </script>
 <template>
-    <div class="container">
-        <!-- SEZIONE FILM -->
-        <div class="card">
-            <div>
-                <img :src="`${store.pathImage}${details.poster_path}`" alt="">
-            </div>
+    <!-- SEZIONE FILM -->
+    <div class="card">
+        <div class="card-image">
+            <img :src="`${store.pathImage}${details.poster_path}`" alt="">
+        </div>
+        <div class="card-text">
             <ul>
                 <li>{{ details.title }}</li>
                 <li>{{ details.original_title }}</li>
+                <li>{{ details.name }}</li>
+                <li>{{ details.original_name }}</li>
             </ul>
             <img class="flag" v-if="store.iconFlag.includes(details.original_language)"
                 :src="`${details.original_language}.jpg`" :alt="`${details.original_language}`">
             <p v-else>{{ details.original_language }}</p>
-
-        </div>
-        <!-- SEZIONE SERIE -->
-        <div class="card">
-            <ul>
-                <li>{{ details.name }}</li>
-                <li>{{ details.original_name }}</li>
-            </ul>
             <span v-for="n in votefilmandseries">
                 <i class="fa-solid fa-star"></i>
             </span>
@@ -49,18 +43,39 @@ export default {
                 <i class="fa-regular fa-star"></i>
             </span>
         </div>
+
+
     </div>
 </template>
 <style lang="scss" scoped>
 @use "./../styles/partials/variables.scss" as *;
 
 .card {
-    width: calc(100vw / 3 - 10px);
+    width: calc(100vw / 5 - 10px);
     padding: 10px;
     margin: 0 auto;
 
+    &:hover .card-image {
+        display: none;
+    }
+
+    &:hover .card-text {
+        display: block;
+        background-color: black;
+        color: white;
+        padding: 10px;
+        margin: 5px 0;
+    }
+
     .flag {
         width: 25px;
+        display: block;
+    }
+
+
+
+    .card-text {
+        display: none;
     }
 }
 
