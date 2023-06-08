@@ -14,6 +14,9 @@ export default {
 </script>
 <template>
     <div class="film">
+        <div>
+            <img :src="`${store.pathImage}${details.poster_path}`" alt="">
+        </div>
         <h3>{{ details.title }}</h3>
         <h4>{{ details.original_title }}</h4>
         <img v-if="store.iconFlag.includes(details.original_language)" :src="`${details.original_language}.jpg`"
@@ -25,8 +28,4 @@ export default {
 </template>
 <style lang="scss" scoped>
 @use "./../styles/partials/variables.scss" as *;
-
-img {
-    width: 20px;
-}
 </style>

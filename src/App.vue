@@ -17,22 +17,23 @@ export default {
   },
   methods: {
     getFilm() {
-      let myURL = store.apiURL
+      let myURLMovie = store.apiURLMovie
+      let myURLSeries = store.apiURLSeries
+      store.listFilm = []
       if (store.searchText !== "") {
-        myURL += `&${store.apiSearchParameter}=${store.searchText}`
+        myURLMovie += `&${store.apiSearchParameter}=${store.searchText}`
+        myURLSeries += `&${store.apiSearchParameter}=${store.searchText}`
 
       }
-      axios.get(myURL)
+      axios.get(myURLMovie)
         .then(result => {
-          store.listFilm = result.data.results;
-          store.listLanguage = [];
-          store.flag = []
-          store.listFilm.forEach(element => {
-            this.store.listLanguage.push(element.original_language)
-
-          })
+          store.listFilm.push(result.data.results);
         })
-
+      axios.get(myURLSeries)
+        .then(result => {
+          store.listFilm.push(result.data.results);
+          console.log(store.listFilm);
+        })
         .catch(err => {
           console.log(err);
         })
