@@ -24,13 +24,20 @@ export default {
       }
       axios.get(myURL)
         .then(result => {
-          store.listFilm = result.data.results
-          console.log(store.listFilm);
+          store.listFilm = result.data.results;
+          store.listLanguage = [];
+          store.flag = []
+          store.listFilm.forEach(element => {
+            this.store.listLanguage.push(element.original_language)
+
+          })
         })
+
         .catch(err => {
           console.log(err);
         })
-    }
+
+    },
   }
 }
 
