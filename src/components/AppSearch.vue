@@ -21,7 +21,7 @@ export default {
         </div>
         <div>
             <input type="text" v-model="store.searchText" placeholder="cerca un film" @keyup.enter="$emit('search')">
-            <button class="button" @click="$emit('search')">Invia</button>
+
         </div>
     </header>
 </template>
@@ -43,15 +43,10 @@ header {
     }
 
     input {
-        height: 30px;
+        height: 25px;
         padding: 3px;
+        margin-right: 10px;
     }
 
-    .button {
-        height: 30px;
-        font-size: 0.8rem;
-        padding: 3px;
-        margin: 0 10px;
-    }
 }
 </style>
