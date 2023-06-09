@@ -6,7 +6,7 @@ export const store = reactive({
     searchText: "",
     apiSearchParameter: "query",
     listLanguage: [],
-    iconFlag: ["en", "es", "fr", "it", "de", "ja"],
-    pathImage: "https://image.tmdb.org/t/p/w342",
+    iconFlag: ["en", "es", "fr", "it", "de", "ja", "pt", "ko"],
+    pathImage: "https://image.tmdb.org/t/p/w342"
 
 })

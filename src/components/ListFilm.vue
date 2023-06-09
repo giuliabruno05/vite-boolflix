@@ -28,7 +28,8 @@ export default {
 
 .container {
     margin: 0 auto;
-    background-color: grey;
+    background-color: #434343;
+    min-height: 800px;
 
     .box-card {
         display: flex;
